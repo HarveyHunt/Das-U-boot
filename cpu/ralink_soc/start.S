@@ -296,6 +296,13 @@ reset:
 	or	$30,$0, $0
 	or	$31,$0, $0
 
+
+    // Configure the GPIO reg to use pins for JTAG,
+    // rather than EPHY LEDs.
+    li	t0, RALINK_SYSCTL_BASE + 0x64
+    li  t1, 0xffd
+    sw  t1, 0(t0)
+
 #if defined (MT7628_ASIC_BOARD)
 #if (TEXT_BASE == 0xBFC00000) || (TEXT_BASE == 0xBF000000) || (TEXT_BASE == 0xBC000000)	
 	li	t0, RALINK_SYSCTL_BASE + 0x34

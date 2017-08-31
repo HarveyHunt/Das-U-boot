@@ -2158,12 +2158,12 @@ void rt305x_esw_init(void)
 #if defined (CONFIG_ETH_ONE_PORT_ONLY)
         i &= 0xf003f003;
         i |= 0x05540554;
-        RALINK_REG(RALINK_SYSCTL_BASE + 0x64) = i; // set P0 EPHY LED mode
-#else	
+        //RALINK_REG(RALINK_SYSCTL_BASE + 0x64) = i; // set P0 EPHY LED mode
+#else
 	i &= 0xf003f003;
-	RALINK_REG(RALINK_SYSCTL_BASE + 0x64) = i;
+	//RALINK_REG(RALINK_SYSCTL_BASE + 0x64) = i;
 #endif
-      
+
 	udelay(5000);
 	mt7628_ephy_init();
 
